@@ -1,9 +1,10 @@
 import styles from "./CityList.module.css";
 import Spinner from "./Spinner";
 import CityItem from "./CityItem";
-function CityList({ cities, isLoading }) {
+import { useCity } from "../contexts/CityContext";
+function CityList() {
+  const { cities, isLoading } = useCity();
   if (isLoading) return <Spinner />;
-
   return (
     <div className={styles.cityList}>
       {cities.map((city) => {
